@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import SerchBar from './components/Searchbar';
+import SearchContext from "./context/SearchContext";
+import {useState} from "react";
+import Results from './views/results';
+
 
 function App() {
+  var searchState = useState([])
+
   return (
+    <SearchContext.Provider value={searchState}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SerchBar/>
+      <Results/>
     </div>
+    </SearchContext.Provider>
   );
 }
 
