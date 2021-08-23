@@ -21,10 +21,15 @@
   
   .movie__year{
     grid-area: year;
+    a{color: black;
+    text-decoration: none;}
   }
+
   .movie__title{
       grid-area: title;
       font-size: 125%;
+      a{color: black;
+      text-decoration: none;}
   }
 }
 

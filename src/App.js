@@ -3,6 +3,8 @@ import SerchBar from './components/Searchbar';
 import SearchContext from "./context/SearchContext";
 import {useEffect, useState} from "react";
 import Results from './views/results';
+import { Router } from "@reach/router"
+import Movie from './components/Movie';
 
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
     if (Notification.permission === 'granted') {
       navigator.serviceWorker.getRegistration().then(function(reg) {
         reg.showNotification('Hello world!',{
-          vibrate: [200, 100, 200, 500, 100, 300, 200, 400, 2000, 50]
+          vibrate: [200, 100, 200, 500, 100, 300, 200, 400, 2000, 50] //does not work
         });
       });
     }
@@ -28,7 +30,12 @@ function App() {
     <SearchContext.Provider value={searchState}>
     <div className="App">
       <SerchBar/>
-      <Results/>
+      <Router>
+        <Results path = "/"/>
+        <Movie path = "/movie/:id"/>
+      </Router>
+    
+
       <button onClick={displayNotification}>Notify me</button>
     </div>
     </SearchContext.Provider>

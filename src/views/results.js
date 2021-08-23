@@ -13,6 +13,7 @@ export default function Results() {
         poster={result.Poster}
         title={result.Title}
         year={result.Year}
+        imdbID={result.imdbID}
       />)}
     </div>
   )

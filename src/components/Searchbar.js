@@ -1,6 +1,7 @@
 import SearchContext from "../context/SearchContext";
 import "../style/searchbar.scss"
 import { useContext } from "react";
+import { Link } from "@reach/router";
 
 export default function SerchBar() {
   var setResults = useContext(SearchContext)[1]
@@ -24,7 +25,7 @@ export default function SerchBar() {
   return (
     <header>
 
-      <h1>Movie DB</h1>
+      <h1><Link to="/">Movie DB</Link></h1>
       <form onSubmit={handlesubmit}>
 
         <input className="search_input" type="search" name="search" />
